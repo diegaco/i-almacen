@@ -55,6 +55,12 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
+    'import/no-anonymous-default-export': [
+      'error',
+      {
+        allowObject: true,
+      },
+    ],
     'prettier/prettier': [
       'error',
       {
