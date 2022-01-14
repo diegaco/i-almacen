@@ -1,12 +1,12 @@
 import Papa from 'papaparse';
 
+import { INFORMATION } from '../app/constants';
+
 import { Product } from './types';
 
 export default {
   list: async (): Promise<Product[]> => {
-    return fetch(
-      'https://docs.google.com/spreadsheets/d/e/2PACX-1vSpUH4tMNFq7BgnIHZGTBDAuzWl5el51Y1kGMw39MLzktwYHX_suKTGo1ZFCjLxm_lFezwB4xp76RTH/pub?output=csv',
-    )
+    return fetch(INFORMATION.sheet)
       .then((res) => res.text())
       .then((data) => {
         return new Promise<Product[]>((resolve, reject) => {
