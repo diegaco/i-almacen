@@ -93,42 +93,40 @@ const CartDrawer: React.FC<Props> = ({ items, onClose, onDecrement, onIncrement,
             )}
           </DrawerBody>
 
-          <DrawerFooter>
-            {Boolean(items.length) && (
-              <DrawerFooter paddingX={4}>
-                <Stack spacing={4} width="100%">
-                  <Divider />
-                  <Stack
-                    alignItems="center"
-                    direction="row"
-                    fontSize="lg"
-                    fontWeight="500"
-                    justifyContent="space-between"
-                  >
-                    <Text>Total</Text>
-                    <Text>{total}</Text>
-                  </Stack>
-                  <Button
-                    isExternal
-                    as={Link}
-                    colorScheme="whatsapp"
-                    data-testid="complete-order"
-                    // href={`https://wa.me/5491141414141?text=${encodeURIComponent(text)}`}
-                    leftIcon={
-                      <Image
-                        alt="whatsapp"
-                        src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff"
-                      />
-                    }
-                    size="lg"
-                    width="100%"
-                  >
-                    Completar pedido
-                  </Button>
+          {Boolean(items.length) && (
+            <DrawerFooter paddingX={4}>
+              <Stack spacing={4} width="100%">
+                <Divider />
+                <Stack
+                  alignItems="center"
+                  direction="row"
+                  fontSize="lg"
+                  fontWeight="500"
+                  justifyContent="space-between"
+                >
+                  <Text>Total</Text>
+                  <Text>{parseCurrency(total)}</Text>
                 </Stack>
-              </DrawerFooter>
-            )}
-          </DrawerFooter>
+                <Button
+                  isExternal
+                  as={Link}
+                  colorScheme="whatsapp"
+                  data-testid="complete-order"
+                  // href={`https://wa.me/5491141414141?text=${encodeURIComponent(text)}`}
+                  leftIcon={
+                    <Image
+                      alt="whatsapp"
+                      src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff"
+                    />
+                  }
+                  size="lg"
+                  width="100%"
+                >
+                  Completar pedido
+                </Button>
+              </Stack>
+            </DrawerFooter>
+          )}
         </DrawerContent>
       </Drawer>
     </>
