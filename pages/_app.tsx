@@ -1,14 +1,12 @@
 import {
   ChakraProvider,
   Container,
-  VStack,
   Image,
   Heading,
   Text,
   Divider,
   Link,
   Stack,
-  Flex,
 } from '@chakra-ui/react';
 import { AppProps } from 'next/app';
 
@@ -19,12 +17,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
       <Container maxW="container.xl">
-        <Stack
-          overflow="hidden"
-          position="relative"
-          px={{ base: 0, md: 6 }}
-          py={{ base: 4, md: 6 }}
-        >
+        <Stack overflow="hidden" position="relative" px={0} py={{ base: 4, md: 6 }}>
           <Image
             alt={INFORMATION.title}
             borderRadius="lg"
